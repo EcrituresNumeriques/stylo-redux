@@ -34,7 +34,7 @@ export default class Home extends Component {
 		}
 		return(
 			<div>
-				{operations.map((operation)=>(<p>{operation.type} ({operation.from},{operation.count}): {operation.text} </p>))}
+				{operations.map((operation)=>(<pre>{operation.type} ({operation.from},{operation.count}): {operation.text} </pre>))}
 			</div>)
 	}
 
@@ -44,7 +44,7 @@ export default class Home extends Component {
 				<h1>Home</h1>
 				<p>This is the Home component.</p>
 				<p>{this.state.firstVersion}</p>
-				<textarea value={this.state.nextVersion} onChange={this.handleChange} style="width: 100%;height: 3em;"></textarea>
+				<textarea value={this.state.nextVersion} onInput={this.handleChange} style="width: 100%;height: 3em;"></textarea>
 				{this.plotDiff(this.state.firstVersion, this.state.nextVersion)}
 			</div>
 		);
