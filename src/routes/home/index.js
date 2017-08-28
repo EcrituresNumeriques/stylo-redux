@@ -10,11 +10,11 @@ export default class Home extends Component {
 		this.state = {firstVersion:'Contrary to belief, Lorem Ipsum is not just a random text. It has roots in a piece of classical Latin literature from 75 BC, making it over 2000 years old.',nextVersion:'Contrary to popular belief, Lorem Ipsum is not just a random text. It has roots in a piece of classical Latin literature from 75 BC, making it over 2000 years old.'};
 	}
 
-	handleChange = function(e){
+	handleChange(e){
 		this.setState({nextVersion: e.target.value});
 	}
 
-	plotDiff = function(one2, other){
+	plotDiff(one2, other){
 		let diff = jsdiff.diffChars(one2, other);
 		let start = 0;
 		let end = 0;
@@ -32,7 +32,7 @@ export default class Home extends Component {
 				end = start + diff[i].count;
 			}
 		}
-		return(
+		return (
 			<div>
 				{operations.map((operation)=>(<pre>{operation.type} ({operation.from},{operation.count}): {operation.text} </pre>))}
 			</div>)
